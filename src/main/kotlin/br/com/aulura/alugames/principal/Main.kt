@@ -3,6 +3,7 @@ package org.example.br.com.aulura.alugames.principal
 import org.example.br.com.aulura.alugames.modelo.Gamer
 import org.example.br.com.aulura.alugames.modelo.Jogo
 import org.example.br.com.aulura.alugames.servicos.ConsumoApi
+import transformarEmIdade
 import java.util.*
 
 fun main() {
@@ -12,6 +13,8 @@ fun main() {
     val gamer = Gamer.criarGamer(leitura)
     println("Cadastro construido com sucesso. Dados Game")
     println(gamer)
+    println("Idade do Gamer " + gamer.dataNascimento?.transformarEmIdade())
+
 
     do{
         println("Digite um codigo de jogo para buscar:")
@@ -82,12 +85,16 @@ fun main() {
 
     if(opcao.equals("s", true)){
         println(gamer.jogosBuscados)
+
+
         println("\n Informe a posição do jogo que deseja excluir ")
         val  posicao =  leitura.nextInt()
         gamer.jogosBuscados.removeAt(posicao)
     }
 
     println("\n Lista atualizada")
+
     println(gamer.jogosBuscados)
+
     println("Busca Finalizada com Sucesso")
 }
